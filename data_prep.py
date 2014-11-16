@@ -26,9 +26,9 @@ def readPickles():
 			df = pd.read_pickle("data/pickled/" + str(serial))
 			DFs[str(serial)] = df
 
-	return DFs()
+	return DFs
 
 
-#readCSV()
+# readCSV()
 
-#readPickles()
+readPickles()
