@@ -10,13 +10,12 @@ def readCSV():
 
 	for root, dirs, files in os.walk("data/"):
 		for csv in files:
-			print csv
-			df = pd.read_csv("data/" + str(csv))
+			df = pd.read_csv("data/" + str(csv), low_memory = False)
 			DFs[str(csv)] = df
 
-
 	for df in DFs:
-		DFs[df].to_pickle("data/pickled/" + str(df)[-4])
+		fileName = "data/pickled/" + str(df)[:-4]
+		DFs[df].to_pickle(fileName)
 
 def readPickles():
 	DFs = {}
@@ -29,6 +28,7 @@ def readPickles():
 	return DFs
 
 
-# readCSV()
+readCSV()
 
-readPickles()
+# readPickles()
+
